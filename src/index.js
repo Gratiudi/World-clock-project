@@ -37,6 +37,10 @@ updateTime();
 setInterval(updateTime, 1000);
 
 function displayCity(event) {
+  if (event.target.value === "current") {
+    event.target.value = moment.tz.guess();
+    console.log(event.target.value);
+  }
   let cityTime = moment().tz(event.target.value);
   let display = document.querySelector(".display");
   display.innerHTML = `<div class="city">
